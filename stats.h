@@ -3,11 +3,10 @@
 namespace Statistics {
     class Stats
 	{
-	private:
+	public::
 		float average;
 		float min;
 		float max;
-	public:
 		Stats(float average, float min, float max)
 		{
 			this->average = average;
