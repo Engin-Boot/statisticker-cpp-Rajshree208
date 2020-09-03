@@ -10,7 +10,7 @@ namespace Statistics{
 float getAverage(std::vector<float> numbers)
 {
 	if (numbers.empty())
-		return 0.0f;
+		return NAN;
 	else
 		return (accumulate(numbers.begin(), numbers.end(),0.0) / numbers.size());
 }
@@ -22,7 +22,7 @@ float getMin(std::vector<float> numbers)
 	{
 		return numbers[0];
 	}
-	return 0.0f;
+	return NAN;
 }
 	
 float getMax(std::vector<float> numbers)
@@ -32,7 +32,7 @@ float getMax(std::vector<float> numbers)
 	{
 		return numbers[numbers.size()-1];
 	}
-	return 0.0f;
+	return NAN;
 }
 	
 Stats ComputeStatistics(const std::vector<float> &numbers)
