@@ -1,5 +1,7 @@
 #include "stats.h"
 #include <vector>
+namespace Statistics{
+	
 float getAverage(const std::vector<float> numbers)
 {
 	float sum = 0.0;
@@ -32,11 +34,19 @@ float getMax(const std::vector<float> numbers)
 	return maxValue;
 }
 
-Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& numbers)
+Stats ComputeStatistics(const std::vector<float>& numbers)
 {
 	Stats statistics;
+	if(number.size()==0)
+	{
+		statistics.average = NAN;
+		statistics.min = NAN;
+		statistics.max = NAN;
+		return statistics;
+	}
 	statistics.average = getAverage(numbers);
 	statistics.min = getMin(numbers);
 	statistics.max = getMax(numbers);
     	return statistics;
+}
 }
