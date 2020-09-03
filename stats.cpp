@@ -32,11 +32,11 @@ float getMax(const std::vector<float> numbers)
 	return maxValue;
 }
 
-Stats Statistics::ComputeStatistics(const std::vector<float>& numbers)
+Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& numbers)
 {
 	Stats statistics;
 	statistics.average = getAverage(numbers);
 	statistics.min = getMin(numbers);
 	statistics.max = getMax(numbers);
-    return statistics;
+    	return statistics;
 }
