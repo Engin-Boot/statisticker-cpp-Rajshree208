@@ -15,21 +15,29 @@ float getAverage(std::vector<float> numbers)
 		return (accumulate(numbers.begin(), numbers.end(),0.0) / numbers.size());
 }
 
-float* getMaxMin(std::vector<float> numbers)
+float getMin(std::vector<float> numbers)
 {
-	float result[] = { 0.0f,0.0f };
+	sort(numbers.begin(), numbers.end());
 	if(!numbers.empty())
 	{
-		sort(numbers.begin(), numbers.end());
-		result[0] = numbers[0];
-		result[1] = numbers[numbers.size() - 1];
+		return numbers[0];
 	}
-	return result;
+	return 0.0f;
 }
-
+	
+float getMax(std::vector<float> numbers)
+{
+	sort(numbers.begin(), numbers.end());
+	if(!numbers.empty())
+	{
+		return numbers[numbers.size()-1];
+	}
+	return 0.0f;
+}
+	
 Stats ComputeStatistics(const std::vector<float> &numbers)
 {
-	Stats stats(getAverage(numbers), getMaxMin(numbers)[0], getMaxMin(numbers)[1]);
+	Stats stats(getAverage(numbers), getMin(numbers), getMax(numbers));
 	return stats;
 }
 }
