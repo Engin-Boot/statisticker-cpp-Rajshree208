@@ -3,34 +3,33 @@
 #include <math.h>
 #include <numeric>
 #include <algorithm>
+#include <bits/stdc++.h>
 
 namespace Statistics{
 	
-float getAverage(const std::vector<float> numbers)
+float getAverage(std::vector<float> numbers)
 {
-	return (std::accumulate(numbers.begin(), numbers.end(),0.0) / numbers.size());
+	if (numbers.empty())
+		return 0.0f;
+	else
+		return (accumulate(numbers.begin(), numbers.end(),0.0) / numbers.size());
 }
 
-float* getMaxMin(const std::vector<float> numbers)
+float* getMaxMin(std::vector<float> numbers)
 {
-	std::sort(numbers.begin(), numbers.end());
-	float result[] = { numbers[0],numbers[numbers.size() - 1] };
+	float result[] = { 0.0f,0.0f };
+	if(!numbers.empty())
+	{
+		sort(numbers.begin(), numbers.end());
+		result[0] = numbers[0];
+		result[1] = numbers[numbers.size() - 1];
+	}
 	return result;
 }
 
-Stats ComputeStatistics(const std::vector<float>& numbers)
+Stats ComputeStatistics(const std::vector<float> &numbers)
 {
-	Stats statistics;
-	if(numbers.size()==0)
-	{
-		statistics.average = NAN;
-		statistics.min = NAN;
-		statistics.max = NAN;
-		return statistics;
-	}
-	statistics.average = getAverage(numbers);
-	statistics.min = getMaxMin(numbers)[0];
-	statistics.max = getMaxMin(numbers)[1];
-    	return statistics;
+	Stats stats(getAverage(numbers), getMaxMin(numbers)[0], getMaxMin(numbers)[1]);
+	return stats;
 }
 }
