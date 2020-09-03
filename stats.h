@@ -3,7 +3,7 @@
 namespace Statistics {
     class Stats
 	{
-	public::
+	public:
 		float average;
 		float min;
 		float max;
