@@ -1,6 +1,9 @@
 #include "stats.h"
 #include <vector>
 #include <math.h>
+#include <numeric>
+#include <algorithm>
+
 namespace Statistics{
 	
 float getAverage(const std::vector<float> numbers)
@@ -26,8 +29,8 @@ Stats ComputeStatistics(const std::vector<float>& numbers)
 		return statistics;
 	}
 	statistics.average = getAverage(numbers);
-	stats.min = getMaxMin(numbers)[0];
-	stats.max = getMaxMin(numbers)[1];
+	statistics.min = getMaxMin(numbers)[0];
+	statistics.max = getMaxMin(numbers)[1];
     	return statistics;
 }
 }
